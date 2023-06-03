@@ -17,7 +17,7 @@ const shortURL = async (req,res)=>  {
         //Check in Cashe data is present or not
         const cashedData = await redis.get(`${longURL}`)
         if (cashedData) {
-            return res.status(204).json({status: true, "data": JSON.parse(cashedData)});
+            return res.status(202).json({status: true, "data": JSON.parse(cashedData)});
         }
 
         const isPresent = await URLmodel.findOne({longUrl: longURL})
