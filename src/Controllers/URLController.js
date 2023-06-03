@@ -55,7 +55,7 @@ const shortURL = async (req,res)=>  {
             await redis.set(`${data.urlCode}`,data.longUrl ,'EX', 3600*24)
 
             const createShortUrl = await URLmodel.create(data);
-            res.status(200).json({status: true, "data": data})
+            res.status(201).json({status: true, "data": data})
 
         }
         
