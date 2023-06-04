@@ -43,7 +43,7 @@ const shortURL = async (req,res)=>  {
                     break;
                 }
             }
-            const shortURL = `http://localhost:3000/${urlCode}`
+            const shortURL = `https://chotaurl.onrender.com/${urlCode}`
             const data = {
                 longUrl: longURL,
                 shortUrl: shortURL,
