@@ -2,9 +2,12 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const router = require('./router/router');
+const cors = require("cors");
 
 const app = express();
+const port = process.env.PORT || 8000;
 
+app.use(cors())
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
@@ -16,6 +19,5 @@ mongoose.connect('mongodb+srv://adarshpriyadarshi001:5mwf8qpAYZ4glK7H@cluster0.3
 
 app.use('/',router);
 
-const port = process.env.PORT || 3000;
 
 app.listen(port,()=>{console.log(`App is running on port http://localhost:${port}`)});
